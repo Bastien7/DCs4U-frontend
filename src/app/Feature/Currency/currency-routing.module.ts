@@ -5,7 +5,7 @@ import { CurrencyComponent } from './currency.component';
 import { CreateCurrencyComponent } from './create/create-currency.component';
 
 const currencyRoute: Routes = [
-    { path: '', component: CurrencyComponent, children: [
+    { path: '', component: CurrencyComponent, pathMatch: 'prefix', children: [
         { path: '', redirectTo: '/currency/create', pathMatch: 'full' },
         { path: 'create', component: CreateCurrencyComponent  }
     ]}
