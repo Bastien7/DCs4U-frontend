@@ -1,0 +1,10 @@
+@import '../../../styles.scss';
+
+#header {
+    text-align: center;
+    h1 {
+        font-family: $font-title;
+        font-size: 48px;
+        text-shadow: 4px 4px 4px #212121;
+    }
+} 

@@ -1,0 +1,15 @@
+@import '../styles.scss';
+
+#dcs4u-app {
+
+    display: flex;
+    flex-flow: column;
+
+    #container-header {
+        background-color: $orange-color;
+    }
+
+    #container-app {
+        flex:2;
+    }
+}

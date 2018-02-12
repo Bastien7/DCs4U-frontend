@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Here defined scss variable */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$font-title: 'Tangerine', serif;
+$orange-color: #ff9800;
+
+html {
+    height: 100%;
+    width: 100%;
+
+    body {
+        height: 100%;
+        width:100%;
+        padding: 0;
+        margin: 0;
+
+        .max-width {
+            width: 100%
+        }
+
+        .max-height {
+            height: 100%;
+        }
+
+        .max-size {
+            height: 100%;
+            width: 100%;
+        }    
+    }
+}
