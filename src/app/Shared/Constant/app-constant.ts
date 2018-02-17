@@ -5,4 +5,6 @@ export class AppConstant {
   public static get currencyStepTwo(): string { return 'Person'; }
   public static get placeholderCurrencyName(): string { return 'Name'; }
   public static get errorFieldRequired(): string { return 'Field is required'; }
+  public static get introSentanceCurrency(): string { return 'That\'s sounds great'; }
+  public static get introPersonCreate(): string { return 'I would be proud to know about the genius behind this idea'; }
 }

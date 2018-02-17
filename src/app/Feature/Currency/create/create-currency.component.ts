@@ -14,27 +14,40 @@ export class CreateCurrencyComponent {
     constructor() { }
 
     @ViewChild('currency') currency: NgForm;
-    private currencyFormValidity: Boolean = false;
-    private valueFormCurrency = {};
+    private _currencyFormValidity: Boolean = false;
+    private _valueFormCurrency = {};
     public appConstant = AppConstant;
 
+
+
     /**
-     *
-     * @param event
+     * @name CreateCurrencyComponent#updateValidityForm
+     * @type {function}
+     * @param {Object} event
      * Update value of form validity
      */
     updateValidityForm(event: any): void {
-        this.valueFormCurrency['name'] = event.name;
-        this.currencyFormValidity = event.valid;
+        this._valueFormCurrency['name'] = event.name;
+        this._currencyFormValidity = event.valid;
     }
 
-    /*********************************************** Getter and Setter***************************************** */
 
-    public get CurrencyFormValidity(): Boolean {
-        return this.currencyFormValidity;
+
+    /**
+     * @name updateValidityForm#currencyFormValidity
+     * @description getter for _currencyFormValidity
+     * @return {Boolean}
+     */
+    public get currencyFormValidity(): Boolean {
+        return this._currencyFormValidity;
     }
 
-    public get ValueFormCurrency(): any {
-        return this.valueFormCurrency;
+    /**
+     * @name updateValidityForm#valueFormCurrency
+     * @description getter for _valueFormCurrency
+     * @return {?Object}
+     */
+    public get valueFormCurrency(): any {
+        return this._valueFormCurrency;
     }
 }
