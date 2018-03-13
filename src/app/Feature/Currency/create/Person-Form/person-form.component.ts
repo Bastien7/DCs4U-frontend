@@ -17,23 +17,24 @@ export class PersonFormComponent {
 
   /**
    * @name PersonFormComponent#onSubmitForm
+   * @type {function}
    * @param {Object} valuesForm
    * @description format correctly the object for the backend and trigger an eventEmitter to call the service in the parent component
    */
   onSubmitForm(valuesForm): void {
     const objectFormated = {
-      owner: {
         firstName: valuesForm.firstName,
         lastName: valuesForm.lastName,
         email: valuesForm.email,
         birthday: moment(valuesForm.birthday.toISOString()).format('YYYY-MM-DD')
-      },
     };
+    this.submitForm.emit(objectFormated);
   }
 
   /**
-   * @name currencyName
-   * @description get value of _currencyName
+   * @name PersonFormComponent#_currencyName
+   * @type {function}
+   * @description getter value of _currencyName
    * @return {string} _currencyName
    */
   public get currencyName() {
@@ -41,7 +42,7 @@ export class PersonFormComponent {
   }
 
   /**
-   * @name currencyName
+   * @name PersonFormComponent#currencyName
    * @type {function}
    * @description setter of private var _currencyName
    * @param {string} currencyName
@@ -49,6 +50,4 @@ export class PersonFormComponent {
   @Input() public set currencyName(currencyName: string) {
     this._currencyName = currencyName;
   }
-
-
 }

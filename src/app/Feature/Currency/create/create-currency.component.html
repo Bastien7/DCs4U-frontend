@@ -10,7 +10,7 @@
           </mat-step>
           <mat-step>
             <ng-template matStepLabel>{{appConstant.currencyStepTwo}}</ng-template>
-            <dcs4u-currency-creation-person-form [currencyName]="valueFormCurrency.name"></dcs4u-currency-creation-person-form>
+            <dcs4u-currency-creation-person-form [currencyName]="valueFormCurrency.name" (submitForm)="saveCurrency($event)"></dcs4u-currency-creation-person-form>
           </mat-step>
         </mat-horizontal-stepper>
       </mat-card-content>

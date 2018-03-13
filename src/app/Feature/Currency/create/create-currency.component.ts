@@ -29,10 +29,21 @@ export class CreateCurrencyComponent {
         this._currencyFormValidity = event.valid;
     }
 
+    /**
+     * @name CreateCurrencyComponent#saveCurrency
+     * @type {function}
+     * @description Call the service for saving the currency on the Block Chain
+     * @param {Object} personInformation information of the person form
+     */
+    saveCurrency(personInformation: any): void {
+      const owner: any = personInformation;
+      this._valueFormCurrency = {...this._valueFormCurrency, owner};
+    }
 
 
     /**
      * @name updateValidityForm#currencyFormValidity
+     * @type {function}
      * @description getter for _currencyFormValidity
      * @return {Boolean}
      */
@@ -42,8 +53,9 @@ export class CreateCurrencyComponent {
 
     /**
      * @name updateValidityForm#valueFormCurrency
+     * @type {function}
      * @description getter for _valueFormCurrency
-     * @return {?Object}
+     * @return {Object}
      */
     public get valueFormCurrency(): any {
         return this._valueFormCurrency;
