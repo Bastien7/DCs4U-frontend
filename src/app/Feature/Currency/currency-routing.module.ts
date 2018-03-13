@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { CurrencyComponent } from './currency.component';
-import { CreateCurrencyComponent } from './create/create-currency.component';
+import { CurrencyComponent } from '@dsc4u/Feature/Currency/currency.component';
+import { CreateCurrencyComponent } from '@dsc4u/Feature/Currency/create/create-currency.component';
 
 const currencyRoute: Routes = [
     { path: '', component: CurrencyComponent, pathMatch: 'prefix', children: [

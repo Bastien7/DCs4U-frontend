@@ -1,7 +1,6 @@
 import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
-import { AppConstant } from '../../../../Shared/Constant/app-constant';
+import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 import { NgForm } from '@angular/forms';
-
 
 @Component({
     selector: 'dcs4u-currency-creation-currency-form',
@@ -10,13 +9,17 @@ import { NgForm } from '@angular/forms';
 })
 
 export class CurrencyFormComponent {
+
     constructor() { }
+
     public appConstant = AppConstant;
     @ViewChild ('currencyForm') currencyForm: NgForm;
     @Output() validityFormEmitter: EventEmitter<any> = new EventEmitter<any>();
-    public nicolas: String = 'Nicolas';
 
-    /** Emmit value of form validity when focusout */
+    /**
+     * @name CurrencyFormComponent#emitValidityForm
+     * @description Emit an event with the valididty of the form and the value of the form
+     */
     emitValidityForm(): void {
         const objectToEmit = { name: this.currencyForm.form.value.currencyName, valid: this.currencyForm.form.valid };
         this.validityFormEmitter.emit(objectToEmit);

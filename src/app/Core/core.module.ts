@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './Header/header.component';
-
-
+import { HeaderComponent } from '@dsc4u/Core/Header/header.component';
 
 @NgModule({
     imports: [ CommonModule ],

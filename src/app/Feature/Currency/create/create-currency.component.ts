@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { AppConstant } from '../../../Shared/Constant/app-constant';
-import { CurrencyFormComponent } from './Currency-Form/currency-form.component';
 import { NgForm } from '@angular/forms';
+import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 
 @Component({
     selector: 'dcs4u-currency-create',
@@ -13,7 +12,6 @@ export class CreateCurrencyComponent {
 
     constructor() { }
 
-    @ViewChild('currency') currency: NgForm;
     private _currencyFormValidity: Boolean = false;
     private _valueFormCurrency = {};
     public appConstant = AppConstant;

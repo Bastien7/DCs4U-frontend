@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AppConstant } from '../../../../Shared/Constant/app-constant';
+import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 import * as moment from 'moment';
 
 @Component({

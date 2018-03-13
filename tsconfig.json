@@ -15,5 +15,11 @@
       "es2017",
       "dom"
     ],
+    "baseUrl": "./src",
+    "paths": {
+      "@dsc4u/Shared/*": ["app/Shared/*"],
+      "@dsc4u/Core/*": ["app/Core/*"],
+      "@dsc4u/Feature/*": ["app/Feature/*"],
+    },
   }
 }
