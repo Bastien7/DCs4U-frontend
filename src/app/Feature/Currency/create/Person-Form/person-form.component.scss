@@ -1,0 +1,31 @@
+#person-form {
+margin-top: 5%;
+  .intro-container {
+    font-weight: 900;
+    font-size: 25px;
+    margin-bottom: 3%;
+    text-align: center;
+
+    .currency-name {
+      margin-right: 3%;
+    }
+  }
+  .intro-person {
+    margin-bottom: 3%;
+    text-align: center;
+  }
+
+  .sentence-question {
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 3%;
+  }
+
+  .constant-margin {
+    margin-bottom: 2%;
+  }
+
+  .submit-form {
+    float: right;
+  }
+}

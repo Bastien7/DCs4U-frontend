@@ -7,4 +7,11 @@ export class AppConstant {
   public static get errorFieldRequired(): string { return 'Field is required'; }
   public static get introSentanceCurrency(): string { return 'That\'s sounds great'; }
   public static get introPersonCreate(): string { return 'I would be proud to know about the genius behind this idea'; }
+  public static get introSentence(): string { return 'Can you tell me about yourself?'; }
+  public static get firstNamePersonCreate(): string { return 'FirstName'; }
+  public static get lastNamePersonCreate(): string { return 'LastName'; }
+  public static get emailPersonCreate(): string { return 'Email'; }
+  public static get errorValidEmail(): string { return 'Please enter a valid email adress'; }
+  public static get birthdayPerson(): string { return 'Birthday'; }
+  public static get labelButttonFinish(): string { return 'Finish'; }
 }

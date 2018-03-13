@@ -1,11 +1,12 @@
 <div id="currency-form">
-    <div class="text-currency-form">{{appConstant.introCurrencyCreate}}</div>
-    <form #currencyForm="ngForm">
-        <mat-form-field class="max-width">
-            <input matInput placeholder="{{appConstant.placeholderCurrencyName}}" type="text" name="currencyName" ngModel #currencyName="ngModel" required (focusout)="EmitValidityForm()">
-            <mat-error *ngIf="currencyName.errors && (currencyName.touched || currencyName.dirty)">
-                <span>{{appConstant.errorFieldRequired}}</span>
-            </mat-error>
-        </mat-form-field>
-    </form>
+  <div class="text-currency-form">{{appConstant.introCurrencyCreate}}</div>
+  <form #currencyForm="ngForm">
+    <mat-form-field class="max-width">
+      <input matInput placeholder="{{appConstant.placeholderCurrencyName}}" type="text" name="currencyName" ngModel #currencyName="ngModel"
+        required (blur)="emitValidityForm()">
+      <mat-error *ngIf="currencyName.errors && (currencyName.touched || currencyName.dirty)">
+        <span>{{appConstant.errorFieldRequired}}</span>
+      </mat-error>
+    </mat-form-field>
+  </form>
 </div>

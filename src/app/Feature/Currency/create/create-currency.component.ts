@@ -24,7 +24,7 @@ export class CreateCurrencyComponent {
      * @name CreateCurrencyComponent#updateValidityForm
      * @type {function}
      * @param {Object} event
-     * Update value of form validity
+     * @description Update value of form validity
      */
     updateValidityForm(event: any): void {
         this._valueFormCurrency['name'] = event.name;

@@ -14,9 +14,10 @@ export class CurrencyFormComponent {
     public appConstant = AppConstant;
     @ViewChild ('currencyForm') currencyForm: NgForm;
     @Output() validityFormEmitter: EventEmitter<any> = new EventEmitter<any>();
+    public nicolas: String = 'Nicolas';
 
     /** Emmit value of form validity when focusout */
-    EmitValidityForm(): void {
+    emitValidityForm(): void {
         const objectToEmit = { name: this.currencyForm.form.value.currencyName, valid: this.currencyForm.form.valid };
         this.validityFormEmitter.emit(objectToEmit);
     }

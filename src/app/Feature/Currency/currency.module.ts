@@ -10,9 +10,9 @@ import { PersonFormComponent } from './create/Person-Form/person-form.component'
 
 
 @NgModule({
-    imports: [ CurrencyRoutingModule, SharedModule],
-    exports: [],
-    declarations: [ CreateCurrencyComponent, CurrencyComponent, CurrencyFormComponent, PersonFormComponent ],
-    providers: [],
+  imports: [CurrencyRoutingModule, SharedModule],
+  exports: [],
+  declarations: [CreateCurrencyComponent, CurrencyComponent, CurrencyFormComponent, PersonFormComponent],
+  providers: [],
 })
 export class CurrencyModule { }
