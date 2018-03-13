@@ -38,9 +38,9 @@
     </mat-form-field>
 
     <mat-form-field class="max-width constant-margin">
-      <input matInput [matDatepicker]="picker" placeholder="{{appConstant.birthdayPerson}}" name="birthday" ngModel #birthday="ngModel" required>
+      <input matInput [matDatepicker]="picker" placeholder="{{appConstant.birthdayPerson}}" name="birthday" ngModel #birthday="ngModel"  date>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker ></mat-datepicker>
+      <mat-datepicker #picker touchUi="true"></mat-datepicker>
       <mat-error *ngIf="birthday.errors && (birthday.touched || birthday.dirty)">
         <span>{{appConstant.errorFieldRequired}}</span>
       </mat-error>

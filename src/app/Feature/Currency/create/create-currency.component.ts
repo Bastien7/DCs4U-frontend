@@ -38,6 +38,7 @@ export class CreateCurrencyComponent {
     saveCurrency(personInformation: any): void {
       const owner: any = personInformation;
       this._valueFormCurrency = {...this._valueFormCurrency, owner};
+      console.log(this._valueFormCurrency);
     }
 
 
