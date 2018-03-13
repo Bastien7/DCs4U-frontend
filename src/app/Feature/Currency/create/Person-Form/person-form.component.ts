@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 import * as moment from 'moment';
 
@@ -11,6 +11,7 @@ import * as moment from 'moment';
 export class PersonFormComponent {
   constructor() { }
 
+  @Output() submitForm: EventEmitter<any> = new EventEmitter<any>();
   private _currencyName: string;
   appConstant = AppConstant;
 
@@ -20,7 +21,14 @@ export class PersonFormComponent {
    * @description format correctly the object for the backend and trigger an eventEmitter to call the service in the parent component
    */
   onSubmitForm(valuesForm): void {
-
+    const objectFormated = {
+      owner: {
+        firstName: valuesForm.firstName,
+        lastName: valuesForm.lastName,
+        email: valuesForm.email,
+        birthday: moment(valuesForm.birthday.toISOString()).format('YYYY-MM-DD')
+      },
+    };
   }
 
   /**
