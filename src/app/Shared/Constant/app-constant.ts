@@ -15,4 +15,5 @@ export class AppConstant {
   public static get birthdayPerson(): string { return 'Birthday'; }
   public static get labelButttonFinish(): string { return 'Finish'; }
   public static get wrongDateFormat(): string { return 'Format is incorrect, must be YYYY/MM/DD/'; }
+  public static get wrongEmailFormat(): string { return 'Format is incorrect, must be exemple@gmail.com'; }
 }

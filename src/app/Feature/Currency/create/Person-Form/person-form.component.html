@@ -12,41 +12,37 @@
   <div class="sentence-question">
     <span>{{appConstant.introSentence}}</span>
   </div>
-  <form #personForm="ngForm" (ngSubmit)="onSubmitForm(personForm.value)">
+  <form [formGroup]="personForm" (ngSubmit)="onSubmitForm(personForm.value)">
 
     <mat-form-field class="max-width constant-margin">
-      <input matInput placeholder="{{appConstant.firstNamePersonCreate}}" type="text" name="firstName" ngModel #firstName="ngModel"
-        required>
+      <input matInput placeholder="{{appConstant.firstNamePersonCreate}}" type="text" formControlName="firstName" required>
       <mat-error *ngIf="firstName.errors && (firstName.touched || firstName.dirty)">
         <span>{{appConstant.errorFieldRequired}}</span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="max-width constant-margin">
-      <input matInput placeholder="{{appConstant.lastNamePersonCreate}}" type="text" name="lastName" ngModel #lastName="ngModel"
-        required>
-      <mat-error *ngIf="lastName.errors && (lastName.touched || lastName.dirty)">
+      <input matInput placeholder="{{appConstant.lastNamePersonCreate}}" type="text" formControlName="lastName" required>
+      <mat-error *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
         <span>{{appConstant.errorFieldRequired}}</span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="max-width constant-margin">
-      <input matInput placeholder="{{appConstant.emailPersonCreate}}" type="text" name="email" ngModel #email="ngModel" email required>
-      <mat-error *ngIf="email.errors && (email.touched || email.dirty)">
-        <span [hidden]="!email.errors.email">{{appConstant.errorValidEmail}}</span>
+      <input matInput placeholder="{{appConstant.emailPersonCreate}}" type="text" formControlName="email" required>
+      <mat-error *ngIf="email.errors && (email.dirty || email.touched)">
+        <span [hidden]="!email.hasError('required')">{{appConstant.errorFieldRequired}}</span>
+        <span [hidden]="email.hasError('required') && !email.hasError('email')">{{appConstant.wrongEmailFormat}}</span>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="max-width constant-margin">
-      <input matInput [matDatepicker]="picker" placeholder="{{appConstant.birthdayPerson}}" name="birthday" ngModel #birthday="ngModel"  date>
+      <input matInput [matDatepicker]="picker" placeholder="{{appConstant.birthdayPerson}}" formControlName="birthday" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker touchUi="true"></mat-datepicker>
-      <mat-error *ngIf="birthday.errors && (birthday.touched || birthday.dirty)">
-        <span>{{appConstant.errorFieldRequired}}</span>
-      </mat-error>
     </mat-form-field>
 
-    <button class="submit-form" mat-raised-button color="primary" [disabled]="!personForm.form.valid">{{appConstant.labelButttonFinish}}</button>
+    <button class="submit-form" mat-raised-button color="primary" [disabled]="!personForm.valid">{{appConstant.labelButttonFinish}}</button>
 
   </form>
 </div>
