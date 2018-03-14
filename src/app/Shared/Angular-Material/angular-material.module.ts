@@ -4,12 +4,24 @@ import { MatCardModule,
   MatInputModule,
   MatButtonModule,
   MatDatepickerModule,
-  MatNativeDateModule } from '@angular/material';
+  MatNativeDateModule} from '@angular/material';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-    imports: [ MatCardModule, MatStepperModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule ],
-    exports: [ MatCardModule, MatStepperModule, MatInputModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule ],
+    imports: [ MatCardModule,
+      MatStepperModule,
+      MatInputModule,
+      MatButtonModule,
+      MatDatepickerModule,
+      MatNativeDateModule],
+
+    exports: [ MatCardModule,
+      MatStepperModule,
+      MatInputModule,
+      MatButtonModule,
+      MatDatepickerModule,
+      MatNativeDateModule],
+
     declarations: [],
     providers: [],
 })

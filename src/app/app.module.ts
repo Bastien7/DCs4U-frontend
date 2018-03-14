@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from '@dsc4u/Core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppService } from '@dsc4u/Shared/Service/app.service';
 
 
 
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
     CoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
