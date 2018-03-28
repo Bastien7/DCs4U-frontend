@@ -3,8 +3,8 @@
   <form [formGroup]="currencyForm">
     <mat-form-field class="max-width">
       <input matInput placeholder="{{appConstant.placeholderCurrencyName}}" formControlName="currencyName" (blur)="emitValidityForm()" required>
-      <mat-error *ngIf="currencyForm.controls.currencyName.errors && (currencyForm.controls.currencyName.dirty || currencyForm.controls.currencyName.touched)">
-        <span>{{appConstant.errorFieldRequired}}</span> 
+      <mat-error *ngIf="currencyName.errors && (currencyName.dirty || currencyName.touched)">
+        <span>{{appConstant.errorFieldRequired}}</span>
       </mat-error>
     </mat-form-field>
   </form>

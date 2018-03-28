@@ -54,4 +54,14 @@ export class CurrencyFormComponent implements OnInit {
     public get currencyForm(): FormGroup {
       return this._currencyForm;
     }
+
+    /**
+     * @name CurrencyFormComponent#currencyName
+     * @type {function}
+     * @description getter of abstract control currencyName;
+     * @returns {AbstractControl}
+     */
+  public get currencyName(): AbstractControl {
+      return this._currencyForm.get('currencyName');
+    }
 }
