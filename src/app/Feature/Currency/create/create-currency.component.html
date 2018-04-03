@@ -6,7 +6,7 @@
           <mat-step [completed]="currencyFormValidity">
             <ng-template matStepLabel>{{appConstant.currencyStepOne}}</ng-template>
             <dcs4u-currency-creation-currency-form (validityFormEmitter)="updateValidityForm($event)"></dcs4u-currency-creation-currency-form>
-            <button class="button-step" mat-raised-button matStepperNext>Next</button>
+            <button class="button-step" mat-raised-button matStepperNext>{{appConstant.nextLableButton}}</button>
           </mat-step>
           <mat-step>
             <ng-template matStepLabel>{{appConstant.currencyStepTwo}}</ng-template>

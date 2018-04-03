@@ -16,4 +16,5 @@ export class AppConstant {
   public static get labelButttonFinish(): string { return 'Finish'; }
   public static get wrongDateFormat(): string { return 'Format is incorrect, must be YYYY/MM/DD/'; }
   public static get wrongEmailFormat(): string { return 'Format is incorrect, must be exemple@gmail.com'; }
+  public static get nextLableButton(): string { return 'Next'; }
 }

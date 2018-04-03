@@ -6,10 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppService } from '@dsc4u/Shared/Service/app.service';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +16,8 @@ import { AppService } from '@dsc4u/Shared/Service/app.service';
     CoreModule,
     AppRoutingModule
   ],
-  providers: [AppService],
+  providers: [
+    AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
