@@ -21,7 +21,7 @@
       "@dsc4u/Core/*": ["app/Core/*"],
       "@dsc4u/Feature/*": ["app/Feature/*"],
       "@dcs4u/Model/*":["app/Model/*"],
-      "@dcs4u/Environments/*":["environments/*"],
-    },
+      "@dcs4u/Environments/*":["environments/*"]
+    }
   }
 }

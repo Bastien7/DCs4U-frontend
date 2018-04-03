@@ -11,10 +11,8 @@ export class AppConstant {
   public static get firstNamePersonCreate(): string { return 'FirstName'; }
   public static get lastNamePersonCreate(): string { return 'LastName'; }
   public static get emailPersonCreate(): string { return 'Email'; }
-  public static get errorValidEmail(): string { return 'Please enter a valid email adress'; }
   public static get birthdayPerson(): string { return 'Birthday'; }
   public static get labelButttonFinish(): string { return 'Finish'; }
-  public static get wrongDateFormat(): string { return 'Format is incorrect, must be YYYY/MM/DD/'; }
   public static get wrongEmailFormat(): string { return 'Format is incorrect, must be exemple@gmail.com'; }
   public static get nextLableButton(): string { return 'Next'; }
 }
