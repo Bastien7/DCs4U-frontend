@@ -1,4 +1,5 @@
-import { Component, Input} from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from '@dsc4u/Shared/Service/app.service';
 
 @Component({
   selector: 'dcs4u-loader',
@@ -7,27 +8,15 @@ import { Component, Input} from '@angular/core';
 })
 
 export class LoaderComponent {
-  constructor() { }
-
-  private _isLoading: boolean;
+  constructor( private _appService: AppService) { }
 
   /**
-   * @name LoaderComponent#isLoading
+   * @name LoaderComponent#appService
    * @type {function}
-   * @description setter of _isLoading
-   * @param {boolean} loading
+   * @description getter to user private _appService on dom
+   * @return {AppService}
    */
-  @Input() public set isLoading(loading) {
-    this._isLoading = loading;
-  }
-
-  /**
-   * @name LoaderComponent#isLoading
-   * @type {function}
-   * @description getter of _isLoading
-   * @return {boolean} _isLoading
-   */
-  public get isLoading(): boolean {
-    return this._isLoading;
+  public get appService(): AppService {
+    return this._appService;
   }
 }

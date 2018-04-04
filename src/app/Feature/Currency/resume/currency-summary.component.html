@@ -1,1 +1,3 @@
-<div> Hello world</div>
+<div id="currency-summury" class="max-size" *ngIf="currencyObservable | async as currency">
+  <span>{{currency.name}}</span>
+</div>
