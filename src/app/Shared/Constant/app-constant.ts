@@ -17,4 +17,7 @@ export class AppConstant {
   public static get nextLableButton(): string { return 'Next'; }
   public static get successOperation(): string { return 'Operation Successfull'; }
   public static get failedOperation(): string { return 'Operation failed'; }
+  public static get detailCurrencyTitle(): string { return 'Details of your Crypto Currency'; }
+  public static get userInformationTitle(): string { return 'User'; }
+  public static get currencyInformationTitle(): string { return 'Currency'; }
 }

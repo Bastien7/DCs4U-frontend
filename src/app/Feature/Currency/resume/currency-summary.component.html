@@ -1,3 +1,50 @@
 <div id="currency-summury" class="max-size" *ngIf="currencyObservable | async as currency">
-  <span>{{currency.name}}</span>
+  <div class=container-card>
+    <mat-card class="max-height">
+      <div class="container-information max-size">
+        <div class="container-image max-size">
+          <div class="max-width image">
+            <img class="image" src="assets/picture/summury-picture.png">
+          </div>
+        </div>
+        <div class="container-currency max-size">
+          <div class="title">
+            <span>{{appConstant.detailCurrencyTitle}}</span>
+          </div>
+          <div class="informations max-width">
+            <div class="user-informations">
+              <div class="information-title">
+                {{appConstant.userInformationTitle}}
+              </div>
+              <div class="block-information max-height">
+                <div class="container-row">
+                  <div class="row-information">
+                    <span>Firstname:</span>
+                    <span>{{currency.owner.firstName}}</span>
+                  </div>
+                  <div class="row-information">
+                    <span>LastName:</span>
+                    <span>{{currency.owner.lastName}}</span>
+                  </div>
+                  <div class="row-information">
+                    <span>Email:</span>
+                    <span>{{currency.owner.email}}</span>
+                  </div>
+                  <div class="row-information">
+                    <span>Birthday:</span>
+                    <span>{{currency.owner.birthday}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="currency-informations">
+              <div class="information-title">
+                {{appConstant.currencyInformationTitle}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>

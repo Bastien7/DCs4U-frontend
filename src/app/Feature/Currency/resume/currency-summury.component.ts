@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
 import { Currency } from '@dcs4u/Model/currency.model';
 import { Observable } from 'rxjs/Observable';
+import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 
 
 
@@ -18,6 +19,7 @@ export class CurrencySummuryComponent implements OnInit, AfterViewInit {
     private _cdr: ChangeDetectorRef) { }
 
     private _currencyObservable: Observable<Currency>;
+    public appConstant = AppConstant;
 
   /**
    * @name CurrencySummuryComponent#ngOnInit

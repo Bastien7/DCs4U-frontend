@@ -1,5 +1,74 @@
 #currency-summury {
   display: flex;
   justify-content: center;
-  align-items: center;
+
+
+  .container-card {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+
+    .container-information {
+      display: flex;
+      flex-direction: row
+    }
+
+    .container-image {
+      width: 20%;
+      display: flex;
+      margin: auto;
+      height: 50%;
+
+      .image {
+        img {
+          width: 100%;
+          height: 80%;
+        }
+      }
+    }
+  
+    .container-currency {
+      width: 90%;
+      display: flex;
+      flex-flow: column;
+
+      .title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 5%;
+        font-size: 20px;
+      }
+
+      .informations {
+        flex: 2;
+        display: flex;
+        flex-direction: row;
+
+        .information-title {
+          font-size: 18px;
+          margin-bottom: 5%;
+          text-align: center;
+        }
+
+
+        .block-information {
+          flex: 2;
+         
+        }
+        .row-information {
+          padding-left: 10%;
+        }
+
+        .user-informations {
+          width:50%;
+          display: flex;
+          flex-flow: column
+
+        }
+        .currency-informations {
+          width: 50%;
+        }
+      }
+    }
+  }
 }
