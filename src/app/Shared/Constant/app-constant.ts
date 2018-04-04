@@ -15,4 +15,6 @@ export class AppConstant {
   public static get labelButttonFinish(): string { return 'Finish'; }
   public static get wrongEmailFormat(): string { return 'Format is incorrect, must be exemple@gmail.com'; }
   public static get nextLableButton(): string { return 'Next'; }
+  public static get successOperation(): string { return 'Operation Successfull'; }
+  public static get failedOperation(): string { return 'Operation failed'; }
 }

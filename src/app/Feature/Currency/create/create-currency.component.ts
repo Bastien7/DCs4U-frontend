@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
 import { Currency } from '@dcs4u/Model/currency.model';
+import { AppService } from '@dsc4u/Shared/Service/app.service';
+
 
 @Component({
   selector: 'dcs4u-currency-create',
@@ -11,10 +15,14 @@ import { Currency } from '@dcs4u/Model/currency.model';
 
 export class CreateCurrencyComponent {
 
-  constructor(private _currencyService: CurrencyService) { }
+  constructor(private _currencyService: CurrencyService,
+    private _snackBarService: MatSnackBar,
+    private _appService: AppService,
+    private _router: Router) { }
 
   private _currencyFormValidity: Boolean = false;
   private _valueFormCurrency = {};
+  private _idCurrency: string;
   public appConstant = AppConstant;
 
 
@@ -70,6 +78,18 @@ export class CreateCurrencyComponent {
    * @param {Currency} currency
    */
   createCurrency(currency: Currency) {
-    this._currencyService.createCurrency(currency).subscribe(() => ({}));
+    this._currencyService.createCurrency(currency).subscribe((currencyCreated: Currency) => {
+      this._idCurrency = currencyCreated.id;
+    },
+      (error) => {
+        this._snackBarService.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
+      },
+      () => {
+        const successCreationSnackBar = this._snackBarService.open(this.appConstant.successOperation, '', this._appService.configSnackBarMessage); // tslint:disable-line: max-line-length
+        successCreationSnackBar.afterDismissed().subscribe(() => {
+          console.log(this._idCurrency);
+          this._router.navigate(['currency/summury', this._idCurrency]);
+        });
+      });
   }
 }
