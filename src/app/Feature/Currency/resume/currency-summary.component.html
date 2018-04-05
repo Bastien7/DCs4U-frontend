@@ -17,22 +17,22 @@
                 {{appConstant.userInformationTitle}}
               </div>
               <div class="block-information max-height">
-                <div class="container-row">
+                <div class="container-row max-width">
                   <div class="row-information">
-                    <span>Firstname:</span>
+                    <span class="label">{{appConstant.firstNamePersonCreate}}:</span>
                     <span>{{currency.owner.firstName}}</span>
                   </div>
                   <div class="row-information">
-                    <span>LastName:</span>
+                    <span class="label">{{appConstant.lastNamePersonCreate}}:</span>
                     <span>{{currency.owner.lastName}}</span>
                   </div>
                   <div class="row-information">
-                    <span>Email:</span>
+                    <span class="label">{{appConstant.emailPersonCreate}}:</span>
                     <span>{{currency.owner.email}}</span>
                   </div>
                   <div class="row-information">
-                    <span>Birthday:</span>
-                    <span>{{currency.owner.birthday}}</span>
+                    <span class="label">{{appConstant.birthdayPerson}}:</span>
+                    <span>{{currency.owner.birthday | date}}</span>
                   </div>
                 </div>
               </div>
@@ -40,6 +40,14 @@
             <div class="currency-informations">
               <div class="information-title">
                 {{appConstant.currencyInformationTitle}}
+              </div>
+              <div class="block-information max-height">
+                <div class="container-row max-width">
+                  <div class="row-information">
+                    <span class="label">{{appConstant.placeholderCurrencyName}}:</span>
+                    <span>{{currency.name}}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

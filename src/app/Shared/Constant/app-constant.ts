@@ -8,8 +8,8 @@ export class AppConstant {
   public static get introSentanceCurrency(): string { return 'That\'s sounds great'; }
   public static get introPersonCreate(): string { return 'I would be proud to know about the genius behind this idea'; }
   public static get introSentence(): string { return 'Can you tell me about yourself?'; }
-  public static get firstNamePersonCreate(): string { return 'FirstName'; }
-  public static get lastNamePersonCreate(): string { return 'LastName'; }
+  public static get firstNamePersonCreate(): string { return 'Firstname'; }
+  public static get lastNamePersonCreate(): string { return 'Lastname'; }
   public static get emailPersonCreate(): string { return 'Email'; }
   public static get birthdayPerson(): string { return 'Birthday'; }
   public static get labelButttonFinish(): string { return 'Finish'; }
@@ -20,4 +20,5 @@ export class AppConstant {
   public static get detailCurrencyTitle(): string { return 'Details of your Crypto Currency'; }
   public static get userInformationTitle(): string { return 'User'; }
   public static get currencyInformationTitle(): string { return 'Currency'; }
+
 }
