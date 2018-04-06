@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
 import { Currency } from '@dcs4u/Model/currency.model';
@@ -13,10 +13,9 @@ import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
   styleUrls: ['currency-summary.component.scss']
 })
 
-export class CurrencySummuryComponent implements OnInit, AfterViewInit {
+export class CurrencySummuryComponent implements OnInit {
   constructor( private _route: ActivatedRoute,
-    private _currencyService: CurrencyService,
-    private _cdr: ChangeDetectorRef) { }
+    private _currencyService: CurrencyService) { }
 
     private _currencyObservable: Observable<Currency>;
     public appConstant = AppConstant;
@@ -28,10 +27,6 @@ export class CurrencySummuryComponent implements OnInit, AfterViewInit {
    */
   ngOnInit(): void {
     this.initPage();
-  }
-
-  ngAfterViewInit(): void {
-    this._cdr.detectChanges();
   }
 
   /**

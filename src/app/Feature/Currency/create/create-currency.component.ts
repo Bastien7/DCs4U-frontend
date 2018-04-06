@@ -87,7 +87,6 @@ export class CreateCurrencyComponent {
       () => {
         const successCreationSnackBar = this._snackBarService.open(this.appConstant.successOperation, '', this._appService.configSnackBarMessage); // tslint:disable-line: max-line-length
         successCreationSnackBar.afterDismissed().subscribe(() => {
-          console.log(this._idCurrency);
           this._router.navigate(['currency/summury', this._idCurrency]);
         });
       });

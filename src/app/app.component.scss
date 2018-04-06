@@ -11,6 +11,15 @@
 
     #container-app {
         flex:2;
-        background-color: #ececec;
+        display: flex;
+        flex-direction: row;
+        
+        .app {
+          width:85%;
+          background-color: #ececec;
+        }
+        .menu {
+          width: 15%
+        }
     }
 }

@@ -1,11 +1,15 @@
 <dcs4u-loader></dcs4u-loader>
 <div id="dcs4u-app" class="max-size">
-    <div id="container-header">
-        <dcs4u-header></dcs4u-header>
-    </div>
+  <div id="container-header">
+    <dcs4u-header></dcs4u-header>
+  </div>
 
-    <div id="container-app">
-        <router-outlet></router-outlet>
+  <div id="container-app" class="max-width">
+    <div class="menu max-height">
+      toto
     </div>
+    <div class="app max-height">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
-
