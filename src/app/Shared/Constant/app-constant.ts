@@ -20,5 +20,6 @@ export class AppConstant {
   public static get detailCurrencyTitle(): string { return 'Details of your Crypto Currency'; }
   public static get userInformationTitle(): string { return 'User'; }
   public static get currencyInformationTitle(): string { return 'Currency'; }
+  public static get transactionTitle(): string {return 'Transaction'; }
 
 }

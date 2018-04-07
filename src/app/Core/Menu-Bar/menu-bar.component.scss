@@ -1,0 +1,30 @@
+#menu-bar {
+  .container-tuile {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .tuile {
+      margin-bottom: 10%;
+      padding-bottom: 5%;
+      padding-top: 5%;
+      padding-left: 5%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #9c27b0;
+        border-radius: 5px;
+        box-shadow: 5px 5px #ba68c8;
+      } 
+
+      &.active-link {
+        background-color: #9c27b0;
+        border-radius: 5px;
+      }
+
+      .icon-menu {
+        margin-right: 5%;
+      }
+    }
+  }
+}

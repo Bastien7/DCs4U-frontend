@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const appRoute: Routes = [
-  { path: '', redirectTo: '/currency', pathMatch: 'full' },
   { path: 'currency', loadChildren: 'app/Feature/Currency/currency.module#CurrencyModule' }
 ];
 
