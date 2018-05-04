@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Currency } from '@dcs4u/Model/currency.model';
 import { environment } from '@dcs4u/Environments/environment';
@@ -14,7 +14,7 @@ export class CurrencyService {
 
   /**
    * @name CurrencyService#createCurrency
-   * @type {funcrion}
+   * @type {function}
    * @param {Currency} currency
    * @return {Observable<Currency>}
    */

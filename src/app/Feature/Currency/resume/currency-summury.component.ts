@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
 import { Currency } from '@dcs4u/Model/currency.model';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 
 
