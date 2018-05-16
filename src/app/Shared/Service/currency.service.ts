@@ -24,6 +24,7 @@ export class CurrencyService {
 
   getCurrencySummury(id: string): Observable<Currency> {
     const params = new HttpParams().set('id', id);
-    return this._httpClient.get<Currency>(environment.baseUrl + environment.api.currency, { params });
+    return this._httpClient.get<Currency>(`${environment.baseUrl}${environment.api}/${id}`);
+    // return this._httpClient.get<Currency>(environment.baseUrl + environment.api.currency, { params });
   }
 }
