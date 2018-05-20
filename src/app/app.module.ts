@@ -18,8 +18,7 @@ import { AppService } from '@dsc4u/Shared/Service/app.service';
     CoreModule,
     AppRoutingModule
   ],
-  providers: [
-    AppService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
