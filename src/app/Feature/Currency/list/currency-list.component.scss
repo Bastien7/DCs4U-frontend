@@ -11,10 +11,15 @@
     display: flex;
     border: 1px solid #cdcdcd;
     padding: 20px;
+
+    &:nth-child(2n) {
+      background-color: #fff3e0;
+    }
   }
 
   .information {
     width: 95%;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     margin-right: 4%;
@@ -32,6 +37,12 @@
   }
 
   .action-button {
-    width: 5%;
+    width: 10%;
+
+    i {
+      &:first-child {
+        margin-right: 30%;
+      }
+    }
   }
 }
