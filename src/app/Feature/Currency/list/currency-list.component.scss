@@ -38,8 +38,10 @@
 
   .action-button {
     width: 10%;
-
     i {
+      &:hover {
+        cursor: pointer;
+      }
       &:first-child {
         margin-right: 30%;
       }
