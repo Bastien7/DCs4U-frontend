@@ -1,8 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Currency } from '@dcs4u/Model/currency.model';
 import { environment } from '@dcs4u/Environments/environment';
+import { Currency } from '@dcs4u/Model/currency.model';
+import { Observable } from 'rxjs';
 
 
 
@@ -17,14 +17,31 @@ export class CurrencyService {
    * @type {function}
    * @param {Currency} currency
    * @return {Observable<Currency>}
+   * @public
    */
   createCurrency(currency: Currency): Observable<Currency> {
     return this._httpClient.post(environment.baseUrl + environment.api.currency, currency);
   }
 
+  /**
+   * @name CurrencyService#getCurrencySummury
+   * @type {function}
+   * @description get details of a currency
+   * @param id
+   * @public
+   */
   getCurrencySummury(id: string): Observable<Currency> {
-    const params = new HttpParams().set('id', id);
-    return this._httpClient.get<Currency>(`${environment.baseUrl}${environment.api}/${id}`);
-    // return this._httpClient.get<Currency>(environment.baseUrl + environment.api.currency, { params });
+    return this._httpClient.get<Currency>(`${environment.baseUrl}${environment.api.currency}/${id}`);
+
+  }
+
+  /**
+   * @name CurrencyService#getCurrencies
+   * @type {function}
+   * @description get list of currencies
+   * @public
+   */
+  getCurrencies(): Observable <Currency[]> {
+    return this._httpClient.get<Currency[]>(`${environment.baseUrl}${environment.api.currency}`);
   }
 }

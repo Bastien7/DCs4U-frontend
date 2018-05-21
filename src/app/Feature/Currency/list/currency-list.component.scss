@@ -1,0 +1,37 @@
+#currency-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .card {
+    width: 70%;
+  }
+
+  .container-information {
+    display: flex;
+    border: 1px solid #cdcdcd;
+    padding: 20px;
+  }
+
+  .information {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 4%;
+  }
+
+  .icon-label {
+    width: 25%;
+    display: flex;
+    i {
+      margin-right: 10px;
+    }
+    span {
+      padding-top: 5%;
+    }
+  }
+
+  .action-button {
+    width: 5%;
+  }
+}

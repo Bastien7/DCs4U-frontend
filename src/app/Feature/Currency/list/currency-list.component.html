@@ -1,1 +1,28 @@
-<div> je suis Nicolas</div>
+<div id="currency-list" *ngIf="currenciesObservable | async as currencies" class="max-size">
+  <mat-card class="card">
+    <mat-card-title>
+      <span>{{appConstant.titleCurrencyList}}</span>
+    </mat-card-title>
+    <mat-card-content class="max-width">
+      <div class="container-information" *ngFor="let currency of currencies">
+        <div class="information">
+          <div class="icon-label">
+            <i class="fa fa-money fa-2x" aria-hidden="true"></i>
+            <span>{{currency.name}}</span>
+          </div>
+          <div class="icon-label">
+            <i class="fa fa-calendar fa-2x" aria-hidden="truen"></i>
+            <span>{{currency.creationDate | date}}</span>
+          </div>
+          <div class="icon-label">
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            <span>{{currency.owner.firstName}} {{currency.owner.lastName}}</span>
+          </div>
+        </div>
+        <div class="action-button">
+          <i class="fa fa-exchange fa-2x" aria-hidden="true"></i>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
