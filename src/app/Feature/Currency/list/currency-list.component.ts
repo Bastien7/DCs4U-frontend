@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Currency } from '@dcs4u/Model/currency.model';
 import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
+import { AppService } from '@dsc4u/Shared/Service/app.service';
 import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
 import { Observable } from 'rxjs';
 
@@ -16,7 +17,7 @@ export class CurrencyListComponent implements OnInit {
   private _currenciesObservable: Observable<Currency[]>;
   public appConstant = AppConstant;
 
-  constructor( private _currencyService: CurrencyService, private _router: Router) { }
+  constructor( private _currencyService: CurrencyService, private _router: Router, private _appService: AppService) { }
 
   /**
    * @name CurrencyListComponent#ngOnInit
@@ -46,7 +47,8 @@ export class CurrencyListComponent implements OnInit {
    * @public
    */
   goToTransactionCreation(): void {
-    console.log('here navigation to transaction creation');
+    this._appService.showCurrencyList = false;
+    this._router.navigate(['transaction/creation']);
   }
 
   goToDetailsCurrency(id: string): void {

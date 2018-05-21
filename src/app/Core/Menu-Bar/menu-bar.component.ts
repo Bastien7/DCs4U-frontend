@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
+import { AppService } from '@dsc4u/Shared/Service/app.service';
 
 @Component({
   selector: 'dcs4u-menu-bar',
@@ -8,7 +9,18 @@ import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 })
 
 export class MenuBarComponent {
-  constructor() { }
+  constructor( private _appService: AppService) { }
 
   public appConstant = AppConstant;
+
+  /**
+   * @name MenuBarComponent#appService
+   * @type {getter} getter for private var _appService
+   * @description get the private var _appService
+   * @returns {AppService}_appService
+   * @public
+   */
+  get appService(): AppService {
+    return this._appService;
+  }
 }

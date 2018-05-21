@@ -1,7 +1,7 @@
 <div id="menu-bar" class="max-width">
 
   <div class="container-tuile">
-    <div class="tuile" routerLink="/currency" routerLinkActive="active-link">
+    <div class="tuile" routerLink="/currency" routerLinkActive="active-link" (click)="!appService.showCurrencyList">
       <i class="fa fa-bitcoin icon-menu"></i>
       {{appConstant.currencyInformationTitle}}
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from '@dsc4u/Shared/Service/app.service';
 
 @Component({
   selector: 'dcs4u-transaction',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 
 export class TransactionComponent implements OnInit {
-  constructor( private _router: Router) { }
+  constructor( private _router: Router, private _appService: AppService ) { }
 
   /**
    * @name TransactionComponent#ngOnInit
@@ -17,6 +18,6 @@ export class TransactionComponent implements OnInit {
    * @public
    */
   ngOnInit(): void {
-    this._router.navigate(['/currency/list']);
+    if (this._appService.showCurrencyList) { this._router.navigate(['/currency/list']); }
    }
 }
