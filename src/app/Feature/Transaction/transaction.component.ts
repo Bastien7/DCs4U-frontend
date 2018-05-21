@@ -9,7 +9,7 @@ import { AppService } from '@dsc4u/Shared/Service/app.service';
 })
 
 export class TransactionComponent implements OnInit {
-  constructor( private _router: Router, private _appService: AppService ) { }
+  constructor(private _router: Router, private _appService: AppService) { }
 
   /**
    * @name TransactionComponent#ngOnInit
@@ -18,6 +18,8 @@ export class TransactionComponent implements OnInit {
    * @public
    */
   ngOnInit(): void {
-    if (this._appService.showCurrencyList) { this._router.navigate(['/currency/list']); }
-   }
+    if (this._appService.showCurrencyList) {
+      this._router.navigate(['/currency/list']);
+    }
+  }
 }
