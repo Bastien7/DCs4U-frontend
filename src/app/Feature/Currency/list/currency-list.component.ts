@@ -46,9 +46,9 @@ export class CurrencyListComponent implements OnInit {
    * @description Navigation to the creation of a transaction
    * @public
    */
-  goToTransactionCreation(): void {
+  goToTransactionCreation(id: string): void {
     this._appService.showCurrencyList = false;
-    this._router.navigate(['transaction/creation']);
+    this._router.navigate(['transaction/creation'], {queryParams: {id}});
   }
 
   goToDetailsCurrency(id: string): void {
