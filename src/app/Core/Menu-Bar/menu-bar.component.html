@@ -1,13 +1,10 @@
-<div id="menu-bar" class="max-width">
-
-  <div class="container-tuile">
-    <div class="tuile" routerLink="/currency" routerLinkActive="active-link">
-      <i class="fa fa-bitcoin icon-menu"></i>
-      {{appConstant.currencyInformationTitle}}
-    </div>
-    <div class="tuile" routerLink="/transaction" routerLinkActive="active-link" (click)="appService.showCurrencyList = true ">
+<div id="menu-bar">
+  <span class="tuile" routerLink="/currency" routerLinkActive="active-link">
+    <i class="fa fa-bitcoin icon-menu"></i>
+    {{appConstant.currencyInformationTitle}}
+  </span>
+  <span class="tuile" routerLink="/transaction" routerLinkActive="active-link" (click)="appService.showCurrencyList = true ">
       <i class="fa fa-exchange icon-menu"></i>
       {{appConstant.transactionTitle}}
-    </div>
-  </div>
+    </span>
 </div>
