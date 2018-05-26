@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {AppConstant} from '@dsc4u/Shared/Constant/app-constant';
 import {Transaction} from '@dcs4u/Model/transaction.model';
 import {TransactionService} from '@dsc4u/Shared/Service/transaction.service';
@@ -22,7 +22,8 @@ export class TransactionCreationComponent implements OnInit {
   constructor(private _route: ActivatedRoute,
               private _transactionService: TransactionService,
               private _snackBar: MatSnackBar,
-              private _appService: AppService) { }
+              private _appService: AppService,
+              private _router: Router) { }
 
   /**
    * @name TransactionCreationComponent#ngOnInit
@@ -70,14 +71,13 @@ export class TransactionCreationComponent implements OnInit {
    */
   createTransaction(transaction: Transaction): void {
     let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
-    this._transactionService.createTransaction(transaction).subscribe((idTransaction: string) => {
+    this._transactionService.createTransaction(transaction).subscribe((transactionCreated: Transaction) => {
       snackBarRef = this._snackBar.open(this.appConstant.successOperation, '', this._appService.configSnackBarMessage);
+      snackBarRef.afterDismissed().subscribe(() => {
+        this._router.navigate(['transaction/detail', transactionCreated.id]);
+      });
     }, (error) => {
       snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
-    }, () => {
-      snackBarRef.afterDismissed().subscribe(() => {
-        this._transactionForm.reset();
-      });
     });
   }
 

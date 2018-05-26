@@ -1,9 +1,10 @@
 import {Currency} from '@dcs4u/Model/currency.model';
 
 export class Transaction {
-  constructor(id?: string,
-              quantity?: number,
-              addtionalInformation?: string,
-              date?: Date,
-              currency?: Currency) {}
+  constructor(
+    public id?: string,
+    public quantity?: number,
+    public addtionalInformation?: string,
+    public date?: Date,
+    public currency?: Currency) {}
 }
