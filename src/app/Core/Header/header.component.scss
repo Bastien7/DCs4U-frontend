@@ -1,10 +1,12 @@
 @import '../../../styles.scss';
 
 #header {
-    text-align: center;
+    margin-left: 3%;
+    font-family: sans-serif;
+
     h1 {
-        font-family: $font-title;
         font-size: 48px;
-        text-shadow: 4px 4px 4px #212121;
+        color: #68C0FFCC;
+        display: inline-flex;
     }
-} 
+}

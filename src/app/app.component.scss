@@ -2,27 +2,27 @@
 
 #dcs4u-app {
 
+  display: flex;
+  flex-flow: column;
+
+  #container-header {
+    background-color: $orange-color;
+  }
+
+  #container-app {
+    flex: 2;
     display: flex;
-    flex-flow: column;
+    flex-direction: row;
 
-    #container-header {
-        background-color: $orange-color;
+    .app {
+      width: 100%;
+      background-color: #ececec;
     }
-
-    #container-app {
-        flex:2;
-        display: flex;
-        flex-direction: row;
-        
-        .app {
-          width:85%;
-          background-color: #ececec;
-        }
-        .menu {
-          width: 15%;
-          display: flex;
-          align-items: center;
-          background-color:#e1bee7;
-        }
+    .menu {
+      width: 15%;
+      display: flex;
+      align-items: center;
+      background-color: #e1bee7;
     }
+  }
 }
