@@ -1,0 +1,42 @@
+#transaction-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  mat-card {
+    width: 70%;
+  }
+  mat-card-title {
+    margin-bottom: 5%;
+  }
+  mat-card-content {
+    width: 100%;
+  }
+  .details {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2%;
+  }
+
+  .transaction-container {
+    width: 50%;
+  }
+
+  .currency-container {
+    width: 50%
+  }
+
+  .title-container {
+    margin-bottom: 5%;
+    font-weight: bold;
+  }
+
+  .line-information {
+    margin-bottom: 2%;
+  }
+
+  .label-information {
+    margin-right: 2%;
+  }
+
+}

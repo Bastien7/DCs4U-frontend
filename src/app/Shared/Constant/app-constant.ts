@@ -26,4 +26,8 @@ export class AppConstant {
   public static get placeHolderQuantity(): string { return 'Quantity'; }
   public static get placeHolderOptionalInfo(): string { return 'Optional informations'; }
   public static get creatButton(): string { return 'Create'; }
+  public static get transactionDetailTitle(): string { return 'Detail of the transaction'; }
+  public static get dateTransaction(): string { return 'Creation date'; }
+  public static get owner(): string { return 'Owner'; }
+  public static get ok(): string { return 'OK'; }
 }
