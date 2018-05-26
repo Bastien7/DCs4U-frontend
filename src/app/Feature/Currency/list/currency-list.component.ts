@@ -55,5 +55,14 @@ export class CurrencyListComponent implements OnInit {
     this._router.navigate(['/currency/summury', id]);
   }
 
+  /**
+   * @name CurrencyListComponent#goToCurrencyCreation
+   * @type {function}
+   * @description navigate to the creation of currency
+   */
+  goToCurrencyCreation(): void {
+    this._router.navigate(['/currency/create']);
+  }
+
 
 }
