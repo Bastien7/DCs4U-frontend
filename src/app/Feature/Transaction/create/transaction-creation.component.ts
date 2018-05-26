@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Params} from '@angular/router';
+import {AppConstant} from '@dsc4u/Shared/Constant/app-constant';
+import {Transaction} from '@dcs4u/Model/transaction.model';
+import {TransactionService} from '@dsc4u/Shared/Service/transaction.service';
+import {MatSnackBar, MatSnackBarRef, SimpleSnackBar} from '@angular/material';
+import {AppService} from '@dsc4u/Shared/Service/app.service';
 
 @Component({
   selector: 'dcs4u-transaction-creation',
@@ -12,8 +17,12 @@ export class TransactionCreationComponent implements OnInit {
 
   private _currencyId: string;
   private _transactionForm: FormGroup;
+  appConstant = AppConstant;
 
-  constructor(private _route: ActivatedRoute) { }
+  constructor(private _route: ActivatedRoute,
+              private _transactionService: TransactionService,
+              private _snackBar: MatSnackBar,
+              private _appService: AppService) { }
 
   /**
    * @name TransactionCreationComponent#ngOnInit
@@ -53,6 +62,26 @@ export class TransactionCreationComponent implements OnInit {
   }
 
   /**
+   * @name TransactionCreationComponent#createTransaction
+   * @type {function}
+   * @description call the service for creating the transaction
+   * @param {Transaction} transaction
+   * @public
+   */
+  createTransaction(transaction: Transaction): void {
+    let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
+    this._transactionService.createTransaction(transaction).subscribe((idTransaction: string) => {
+      snackBarRef = this._snackBar.open(this.appConstant.successOperation, '', this._appService.configSnackBarMessage);
+    }, (error) => {
+      snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
+    }, () => {
+      snackBarRef.afterDismissed().subscribe(() => {
+        this._transactionForm.reset();
+      });
+    });
+  }
+
+  /**
    * @name TransactionCreationComponent#currencyId
    * @type {getter}
    * @description get the private var _currencyId
@@ -72,5 +101,16 @@ export class TransactionCreationComponent implements OnInit {
    */
   get transactionForm (): FormGroup {
     return this._transactionForm;
+  }
+
+  /**
+   * @name TransactionCreationComponent#quantity
+   * @type {getter}
+   * @description getter for the quantity
+   * @returns {AbstractControl} quantity
+   * @public
+   */
+  get quantity(): AbstractControl {
+    return this.transactionForm.get('quantity');
   }
 }

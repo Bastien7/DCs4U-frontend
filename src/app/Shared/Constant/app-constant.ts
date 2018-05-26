@@ -22,5 +22,8 @@ export class AppConstant {
   public static get currencyInformationTitle(): string { return 'Currency'; }
   public static get transactionTitle(): string {return 'Transaction'; }
   public static get titleCurrencyList(): string { return 'List of currencies'; }
-
+  public static get placeHolderCurrencyId(): string { return 'Id of Currency'; }
+  public static get placeHolderQuantity(): string { return 'Quantity'; }
+  public static get placeHolderOptionalInfo(): string { return 'Optional informations'; }
+  public static get creatButton(): string { return 'Create'; }
 }

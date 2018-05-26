@@ -5,12 +5,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
 import { LoaderInterceptor } from '@dsc4u/Shared/Service/loader.interceptor';
+import {TransactionService} from '@dsc4u/Shared/Service/transaction.service';
 
 
 @NgModule({
   imports: [AngularMaterialModule, CommonModule, ReactiveFormsModule, HttpClientModule],
   exports: [AngularMaterialModule, CommonModule, ReactiveFormsModule],
   declarations: [],
-  providers: [CurrencyService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [CurrencyService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }, TransactionService],
 })
 export class SharedModule { }
