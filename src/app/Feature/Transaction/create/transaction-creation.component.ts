@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Params, Router} from '@angular/router';
 import {AppConstant} from '@dsc4u/Shared/Constant/app-constant';
 import {Transaction} from '@dcs4u/Model/transaction.model';
 import {TransactionService} from '@dsc4u/Shared/Service/transaction.service';
 import {MatSnackBar, MatSnackBarRef, SimpleSnackBar} from '@angular/material';
 import {AppService} from '@dsc4u/Shared/Service/app.service';
+import {Currency} from '@dcs4u/Model/currency.model';
+import {Observable} from 'rxjs/index';
+import {CurrencyService} from '@dsc4u/Shared/Service/currency.service';
 
 @Component({
   selector: 'dcs4u-transaction-creation',
@@ -15,12 +18,14 @@ import {AppService} from '@dsc4u/Shared/Service/app.service';
 
 export class TransactionCreationComponent implements OnInit {
 
-  private _currencyId: string;
+  private _currency: string;
+  private _currencies: Currency[];
   private _transactionForm: FormGroup;
   appConstant = AppConstant;
 
   constructor(private _route: ActivatedRoute,
               private _transactionService: TransactionService,
+              private _currencyService: CurrencyService,
               private _snackBar: MatSnackBar,
               private _appService: AppService,
               private _router: Router) { }
@@ -32,7 +37,7 @@ export class TransactionCreationComponent implements OnInit {
    * @public
    */
   ngOnInit(): void {
-    this.getQueryParams();
+    this.initPage();
   }
 
   /**
@@ -41,10 +46,23 @@ export class TransactionCreationComponent implements OnInit {
    * @description get the id of a currency
    * @public
    */
-  getQueryParams(): void {
+  initPage(): void {
     this._route.queryParams.subscribe((queryParams: Params) => {
-      this._currencyId = queryParams.id;
-      this.createTransactionForm(this._currencyId);
+      this._currency = queryParams.id;
+      if (this._currency) {
+        this.createTransactionForm(this._currency);
+      } else {
+        this._currencyService.getCurrencies().subscribe((currencies: Currency[]) => {
+          this._currencies = currencies;
+          this.createTransactionForm();
+        }, (error) => {
+          let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
+          snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
+          snackBarRef.afterDismissed().subscribe(() => {
+            this._router.navigate(['/currency/list']);
+          });
+        });
+      }
     });
   }
 
@@ -54,9 +72,9 @@ export class TransactionCreationComponent implements OnInit {
    * @description create the transaction form
    * @public
    */
-  createTransactionForm(currencyId): void {
+  createTransactionForm(currency: string = ''): void {
     this._transactionForm = new FormGroup({
-      currencyId: new FormControl(currencyId, Validators.required),
+      currencyId: new FormControl(currency, Validators.required),
       quantity: new FormControl('', [Validators.required]),
       additionalInformation: new FormControl(''),
     });
@@ -88,8 +106,8 @@ export class TransactionCreationComponent implements OnInit {
    * @returns {string} _currencyId
    * @public
    */
-  get currencyId(): string {
-    return this._currencyId;
+  get currency(): string {
+    return this._currency;
   }
 
   /**
@@ -112,5 +130,25 @@ export class TransactionCreationComponent implements OnInit {
    */
   get quantity(): AbstractControl {
     return this.transactionForm.get('quantity');
+  }
+
+  /**
+   * @name TransactionCreationComponent#currencies
+   * @type {getter}
+   * @description getter for the private var _currencies
+   * @returns {Observable<Currency[]>} _currencies
+   */
+  get currencies(): Currency[] {
+    return this._currencies;
+  }
+
+  /**
+   * @name TransactionCreationComponent#currencyId
+   * @type {getter}
+   * @description getter for the abstract control currencyId
+   * @returns {AbstractControl}
+   */
+  get currencyId(): AbstractControl {
+    return this._transactionForm.get('currencyId');
   }
 }

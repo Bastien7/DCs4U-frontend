@@ -30,4 +30,5 @@ export class AppConstant {
   public static get dateTransaction(): string { return 'Creation date'; }
   public static get owner(): string { return 'Owner'; }
   public static get ok(): string { return 'OK'; }
+  public static get chooseCurreny(): string { return 'Please select a currency'; }
 }

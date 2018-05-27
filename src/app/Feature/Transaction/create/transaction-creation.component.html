@@ -1,15 +1,21 @@
-<div id="transaction-creation" class="max-size" *ngIf="currencyId">
+<div id="transaction-creation" class="max-size" *ngIf="currency || currencies">
   <mat-card class="card">
     <mat-card-title>
       <span>Creation of transaction</span>
     </mat-card-title>
     <mat-card-content class="max-width">
       <form [formGroup]="transactionForm" (ngSubmit)="createTransaction(transactionForm.value)">
-        <mat-form-field class="max-width margin-constant">
-          <input matInput readonly="true" placeholder="{{appConstant.placeHolderCurrencyId}}" type="text" formControlName="currencyId"/>
+        <mat-form-field class="max-width margin-constant" *ngIf="currency">
+          <input matInput [readonly]="true" placeholder="{{appConstant.placeHolderCurrencyId}}" type="text" formControlName="currencyId"/>
+        </mat-form-field>
+        <mat-form-field *ngIf="currencies" class="margin-constant">
+          <mat-select placeholder="{{appConstant.chooseCurreny}}" [formControl]="currencyId" required>
+            <mat-option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="currencyId.errors">{{appConstant.errorFieldRequired}}</mat-error>
         </mat-form-field>
         <mat-form-field class="max-width margin-constant">
-          <input matInput placeholder="{{appConstant.placeHolderQuantity}}" type="number" formControlName="quantity"/>
+          <input matInput placeholder="{{appConstant.placeHolderQuantity}}" type="number" formControlName="quantity" required/>
           <mat-error *ngIf="quantity.errors && (quantity.touched || quantity.dirty)">
             <span>{{appConstant.errorFieldRequired}}</span>
           </mat-error>
@@ -17,7 +23,6 @@
         <mat-form-field class="max-width margin-constant">
           <input matInput placeholder="{{appConstant.placeHolderOptionalInfo}}" formControlName="additionalInformation" type="string"/>
         </mat-form-field>
-
         <button  class="right" mat-raised-button color="primary" [disabled]="!transactionForm.valid">{{appConstant.creatButton}}</button>
       </form>
     </mat-card-content>

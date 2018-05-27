@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { MatCardModule,
-  MatStepperModule,
-  MatInputModule,
+import {NgModule} from '@angular/core';
+import {
   MatButtonModule,
+  MatCardModule,
   MatDatepickerModule,
+  MatInputModule,
   MatNativeDateModule,
-  MatSnackBarModule} from '@angular/material';
+  MatSnackBarModule,
+  MatStepperModule,
+  MatSelectModule,
+} from '@angular/material';
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { MatCardModule,
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
     MatSnackBarModule],
 
   exports: [
@@ -26,6 +29,7 @@ import { MatCardModule,
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSelectModule,
     MatSnackBarModule],
 
   declarations: [],

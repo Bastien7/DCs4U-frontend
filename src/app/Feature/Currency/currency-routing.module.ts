@@ -8,7 +8,7 @@ import { CurrencySummuryComponent } from '@dsc4u/Feature/Currency/resume/currenc
 const currencyRoute: Routes = [
   {
     path: '', component: CurrencyComponent, pathMatch: 'prefix', children: [
-      { path: '', pathMatch: 'full', redirectTo: 'create' },
+      { path: '', pathMatch: 'full', redirectTo: 'list' },
       { path: 'create', component: CreateCurrencyComponent },
       { path: 'summury/:id', component: CurrencySummuryComponent },
       { path: 'list', component: CurrencyListComponent }

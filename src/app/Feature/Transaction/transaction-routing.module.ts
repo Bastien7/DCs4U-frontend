@@ -7,6 +7,7 @@ import {TransactionDetailComponent} from '@dsc4u/Feature/Transaction/detail/tran
 
 const routes: Routes = [
   { path: '', component: TransactionComponent, pathMatch: 'prefix', children: [
+    { path: '', redirectTo: 'creation', pathMatch: 'full' },
     { path: 'creation', component: TransactionCreationComponent},
     { path: 'detail/:id', component: TransactionDetailComponent}
   ]},
