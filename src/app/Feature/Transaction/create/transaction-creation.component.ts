@@ -47,22 +47,23 @@ export class TransactionCreationComponent implements OnInit {
    * @public
    */
   initPage(): void {
-    this._route.queryParams.subscribe((queryParams: Params) => {
-      this._currency = queryParams.id;
-      if (this._currency) {
-        this.createTransactionForm(this._currency);
-      } else {
-        this._currencyService.getCurrencies().subscribe((currencies: Currency[]) => {
-          this._currencies = currencies;
+    this._currencyService.getCurrencies().subscribe((currencies: Currency[]) => {
+      this._currencies = currencies;
+    }, (error) => {
+      let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
+      snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
+      snackBarRef.afterDismissed().subscribe(() => {
+        this._router.navigate(['/currency/list']);
+      });
+    }, () => {
+      this._route.queryParamMap.subscribe((queryParams: ParamMap) => {
+        this._currency = queryParams.get('id');
+        if (this._currency) {
+          this.createTransactionForm(this._currency);
+        } else {
           this.createTransactionForm();
-        }, (error) => {
-          let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
-          snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
-          snackBarRef.afterDismissed().subscribe(() => {
-            this._router.navigate(['/currency/list']);
-          });
-        });
-      }
+        }
+      });
     });
   }
 
