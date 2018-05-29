@@ -5,7 +5,7 @@
     </mat-card-title>
     <mat-card-content class="max-width">
       <form [formGroup]="transactionForm" (ngSubmit)="createTransaction(transactionForm.value)">
-        <mat-form-field *ngIf="currencies" class="margin-constant">
+        <mat-form-field class="margin-constant">
           <mat-select placeholder="{{appConstant.chooseCurreny}}" [formControl]="currencyId" required>
             <mat-option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</mat-option>
           </mat-select>

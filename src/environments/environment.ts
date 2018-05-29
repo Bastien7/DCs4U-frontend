@@ -8,6 +8,6 @@ export const environment = {
   baseUrl: 'http://localhost:8080/api',
   api: {
     currency: '/currency',
-    transaction: '/transaction'
+    transaction: '/transaction',
   },
 };

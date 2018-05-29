@@ -1,0 +1,14 @@
+<div class="max-size" id="transaction-list" *ngIf="currenciesObservable | async as currencies">
+  <mat-card class="card">
+    <mat-card-title class="max-width">{{appConstant.transactionList}}</mat-card-title>
+    <mat-card-content class="max-width">
+      <div class="select-box-currencie">
+        <mat-form-field>
+          <mat-select [(value)]="currencySelected" placeholder="{{appConstant.chooseCurreny}}" (selectionChange) = "getTransaction($event)">
+            <mat-option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -29,4 +29,16 @@ export class TransactionService {
   getDetailTransaction(transactionId): Observable<Transaction> {
     return this._httpClient.get<Transaction>(`${environment.baseUrl}${environment.api.transaction}/${transactionId}`);
   }
+
+  /**
+   * @name TransactionService#getTransactionByCurrency
+   * @type {function}
+   * @param currencyId
+   * @returns {Observable<Transaction>}
+   * @public
+   */
+  getTransactionByCurrency(currencyId): Observable<Transaction> {
+    return this._httpClient.
+    get<Transaction>(`${environment.baseUrl}${environment.api.transaction}/${environment.api.currency}/${currencyId}`);
+  }
 }
