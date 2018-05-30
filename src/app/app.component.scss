@@ -18,6 +18,18 @@
       width: 100%;
       background-color: #ececec;
     }
+
+    .container-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      .image {
+        width: 60%;
+      }
+    }
+
     .menu {
       width: 15%;
       display: flex;

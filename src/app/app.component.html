@@ -7,6 +7,9 @@
   <div id="container-app" class="max-width">
     <div class="app max-height">
       <router-outlet></router-outlet>
+      <div class="container-image" *ngIf="appService.showPicture">
+        <img  class="image" src="assets/picture/BiteMyCoin-Cryptocurrency.png">
+      </div>
     </div>
   </div>
 </div>

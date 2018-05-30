@@ -7,6 +7,7 @@ export class AppService {
   constructor() { }
 
   public isLoading = false;
+  public showPicture = true;
   public configSnackBarMessage = {
     duration: 2000
   };
