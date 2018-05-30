@@ -32,4 +32,5 @@ export class AppConstant {
   public static get ok(): string { return 'OK'; }
   public static get chooseCurreny(): string { return 'Please select a currency'; }
   public static get transactionList(): string { return 'List of Transactions'; }
+  public static get noAddationalInformation(): string { return 'No Additional Information'; }
 }

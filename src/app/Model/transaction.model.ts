@@ -4,7 +4,7 @@ export class Transaction {
   constructor(
     public id?: string,
     public quantity?: number,
-    public addtionalInformation?: string,
+    public additionalInformation?: string,
     public date?: Date,
     public currency?: Currency) {}
 }

@@ -5,4 +5,32 @@
   .card {
     width: 70%;
   }
+
+  .container-list-transaction {
+    margin-bottom: 3%;
+  }
+  .container-information-transaction {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #cdcdcd;
+    padding: 20px;
+
+    &:nth-child(2n) {
+      background-color: #fff3e0;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .icon-label {
+    width: 35%;
+    display: flex;
+    i {
+      margin-right: 10px;
+    }
+    span {
+      padding-top: 2%;
+    }
+  }
 }

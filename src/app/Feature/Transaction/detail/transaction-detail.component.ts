@@ -43,7 +43,7 @@ export class TransactionDetailComponent implements OnInit {
    * @public
    */
   navigateToListOfCurrency(): void {
-    this._router.navigate(['/currency/list']);
+    this._router.navigate(['/transaction/list']);
   }
 
   /**

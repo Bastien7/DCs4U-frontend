@@ -4,10 +4,30 @@
     <mat-card-content class="max-width">
       <div class="select-box-currencie">
         <mat-form-field>
-          <mat-select [(value)]="currencySelected" placeholder="{{appConstant.chooseCurreny}}" (selectionChange) = "getTransaction($event)">
+          <mat-select [(value)]="currencyId" placeholder="{{appConstant.chooseCurreny}}" (selectionChange) = "getTransaction($event)">
             <mat-option *ngFor="let currency of currencies" [value]="currency.id">{{currency.name}}</mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
+      <div class="container-list-transaction">
+        <div class="container-information-transaction" *ngFor="let transaction of transactionObservable | async as transactions" (click)="navigateToDetailsTransaction(transaction.id)">
+          <div class="icon-label">
+            <i class="fa fa-bitcoin fa-2x" aria-hidden="true"></i>
+            <span>{{transaction.currency.name}}</span>
+          </div>
+          <div class="icon-label">
+            <i class="fa fa-dollar fa-2x" aria-hidden="true"></i>
+            <span>{{transaction.quantity}}</span>
+          </div>
+          <div class="icon-label">
+            <i class="fa fa-info fa-2x" aria-hidden="true"></i>
+            <span>{{transaction.additionalInformation}}</span>
+            <span *ngIf="transaction.additionalInformation === ''">{{appConstant.noAddationalInformation}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="button-navigation">
+        <button class="right" mat-raised-button (click)="navigateToCreateTransaction()">{{appConstant.creatButton}}</button>
       </div>
     </mat-card-content>
   </mat-card>

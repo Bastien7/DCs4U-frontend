@@ -26,7 +26,7 @@ export class TransactionService {
    * @returns {Observable<Transaction>}
    * @public
    */
-  getDetailTransaction(transactionId): Observable<Transaction> {
+  getDetailTransaction(transactionId: string): Observable<Transaction> {
     return this._httpClient.get<Transaction>(`${environment.baseUrl}${environment.api.transaction}/${transactionId}`);
   }
 
@@ -37,8 +37,8 @@ export class TransactionService {
    * @returns {Observable<Transaction>}
    * @public
    */
-  getTransactionByCurrency(currencyId): Observable<Transaction> {
+  getTransactionByCurrency(currencyId): Observable<Transaction[]> {
     return this._httpClient.
-    get<Transaction>(`${environment.baseUrl}${environment.api.transaction}/${environment.api.currency}/${currencyId}`);
+    get<Transaction[]>(`${environment.baseUrl}${environment.api.transaction}/${environment.api.currency}/${currencyId}`);
   }
 }
