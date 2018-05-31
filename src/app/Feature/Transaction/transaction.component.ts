@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AppService} from '@dsc4u/Shared/Service/app.service';
 
 @Component({
@@ -7,16 +7,8 @@ import {AppService} from '@dsc4u/Shared/Service/app.service';
   styleUrls: ['./transaction.component.scss'],
 })
 
-export class TransactionComponent implements OnInit{
-  constructor(private _appService: AppService) { }
-
-  /**
-   * @name TransactionComponent#ngOnInit
-   * @type {function}
-   * @description Angular lifecucle onInit
-   * @public
-   */
-  ngOnInit(): void {
+export class TransactionComponent {
+  constructor(private _appService: AppService) {
     this._appService.showPicture = false;
   }
 }

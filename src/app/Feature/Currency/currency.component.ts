@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AppService} from '@dsc4u/Shared/Service/app.service';
 
 @Component({
@@ -6,16 +6,8 @@ import {AppService} from '@dsc4u/Shared/Service/app.service';
     templateUrl: './currency.component.html'
 })
 
-export class CurrencyComponent implements OnInit {
-    constructor( private _appService: AppService) { }
-
-  /**
-   * @name CurrencyComponent#ngOnInit
-   * @type {function}
-   * @description Angular lifecycle onInit
-   * @public
-   */
-  ngOnInit(): void {
-    this._appService.showPicture = false;
-  }
+export class CurrencyComponent {
+    constructor( private _appService: AppService) {
+      this._appService.showPicture = false;
+    }
 }
