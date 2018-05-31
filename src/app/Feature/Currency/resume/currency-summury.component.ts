@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { CurrencyService } from '@dsc4u/Shared/Service/currency.service';
-import { Currency } from '@dcs4u/Model/currency.model';
-import { Observable } from 'rxjs';
-import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
-
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {CurrencyService} from '@dsc4u/Shared/Service/currency.service';
+import {Currency} from '@dcs4u/Model/currency.model';
+import {Observable} from 'rxjs';
+import {AppConstant} from '@dsc4u/Shared/Constant/app-constant';
 
 
 @Component({
@@ -15,7 +14,8 @@ import { AppConstant } from '@dsc4u/Shared/Constant/app-constant';
 
 export class CurrencySummuryComponent implements OnInit {
   constructor( private _route: ActivatedRoute,
-    private _currencyService: CurrencyService) { }
+               private _currencyService: CurrencyService,
+               private _router: Router ) { }
 
     private _currencyObservable: Observable<Currency>;
     public appConstant = AppConstant;
@@ -41,6 +41,16 @@ export class CurrencySummuryComponent implements OnInit {
     (error) => {
       console.error(error);
     });
+  }
+
+  /**
+   * @name CurrencySummuryComponent#navigationToCurrencyList
+   * @type {function}
+   * @description naviagtion to the currency List
+   * @public
+   */
+  navigationToCurrencyList(): void {
+    this._router.navigate(['currency/list']);
   }
 
   /**

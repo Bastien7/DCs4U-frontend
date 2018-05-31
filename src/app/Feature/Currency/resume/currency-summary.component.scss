@@ -3,6 +3,9 @@
   justify-content: center;
 
 
+  .button-navigation {
+    margin-bottom: 30px;
+  }
   .container-card {
     width: 50%;
     margin: auto;
@@ -25,7 +28,7 @@
         }
       }
     }
-  
+
     .container-currency {
       width: 90%;
       display: flex;
@@ -56,7 +59,7 @@
           &.special {
             margin-top: 13%;
           }
-         
+
         }
         .row-information {
           padding-left: 10%;
@@ -72,7 +75,7 @@
           width:70%;
           display: flex;
           flex-direction: column;
-        
+
         }
         .currency-informations {
           width: 30%;
