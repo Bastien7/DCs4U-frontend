@@ -7,7 +7,7 @@ import {TransactionService} from '@dsc4u/Shared/Service/transaction.service';
 import {MatSnackBar, MatSnackBarRef, SimpleSnackBar} from '@angular/material';
 import {AppService} from '@dsc4u/Shared/Service/app.service';
 import {Currency} from '@dcs4u/Model/currency.model';
-import {Observable} from 'rxjs/index';
+import {combineLatest, forkJoin, Observable} from 'rxjs';
 import {CurrencyService} from '@dsc4u/Shared/Service/currency.service';
 
 @Component({
@@ -47,24 +47,22 @@ export class TransactionCreationComponent implements OnInit {
    * @public
    */
   initPage(): void {
-    this._currencyService.getCurrencies().subscribe((currencies: Currency[]) => {
-      this._currencies = currencies;
-    }, (error) => {
-      let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
-      snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
-      snackBarRef.afterDismissed().subscribe(() => {
-        this._router.navigate(['/currency/list']);
-      });
-    }, () => {
-      this._route.queryParamMap.subscribe((queryParams: ParamMap) => {
+    combineLatest( this._route.queryParamMap, this._currencyService.getCurrencies())
+      .subscribe(([queryParams, currencies]: [ParamMap, Currency[]]) => {
+        this._currencies = currencies;
         this._currency = queryParams.get('id');
         if (this._currency) {
           this.createTransactionForm(this._currency);
         } else {
           this.createTransactionForm();
         }
+      }, (err) => {
+        let snackBarRef: MatSnackBarRef<SimpleSnackBar>;
+        snackBarRef = this._snackBar.open(this.appConstant.failedOperation, '', this._appService.configSnackBarMessage);
+        snackBarRef.afterDismissed().subscribe(() => {
+          this._router.navigate(['/currency/list']);
+        });
       });
-    });
   }
 
   /**
