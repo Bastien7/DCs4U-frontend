@@ -8,3 +8,10 @@ export class Currency {
     public owner?: Owner,
   ) {}
 }
+
+/*export interface Currency {
+  id: string;
+  name: string;
+  symbol: string;
+  owner: Owner;
+}*/

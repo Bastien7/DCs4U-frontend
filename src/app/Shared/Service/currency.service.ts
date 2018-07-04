@@ -20,7 +20,7 @@ export class CurrencyService {
    * @public
    */
   createCurrency(currency: Currency): Observable<Currency> {
-    return this._httpClient.post(environment.baseUrl + environment.api.currency, currency);
+    return this._httpClient.post<Currency>(environment.baseUrl + environment.api.currency, currency);
   }
 
   /**
